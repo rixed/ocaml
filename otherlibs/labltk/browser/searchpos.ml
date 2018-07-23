@@ -818,6 +818,7 @@ and search_pos_expr ~pos exp =
       search_pos_class_structure ~pos cls
   | Texp_pack modexp ->
       search_pos_module_expr modexp ~pos
+  | (Texp_bracket _|Texp_escape _|Texp_cspval (_, _)) -> ()
   end;
   add_found_str (`Exp(`Expr, exp.exp_type)) ~env:exp.exp_env ~loc:exp.exp_loc
   end
